@@ -30,7 +30,7 @@ public class FrmAuto extends javax.swing.JDialog {
     }
 
     private void limpiar() {
-        estudianteao.setEstudiante(null);
+        estudianteao.setAuto(null);
 //        cargarTabla();
 //        txapellido.setText("");
 //        txnombre.setText("");
@@ -53,10 +53,10 @@ public class FrmAuto extends javax.swing.JDialog {
 
         String[] colores = {"BLANCO", "NEGRO", "AZUL", "AMARILLO", "NARANJA", "GRIS", "VERDE", "ROJO", "CAFE", "ROSADO", "CONCHE VINO", "FUCCIA"};
         try {
-            for (int i = 0; i < 5; i++) {
-                estudianteao.getEstudiante().setModelo(marcas[(int) (Math.floor(Math.random() * ((marcas.length - 1) - 0 + 1) + 0))]);
-                estudianteao.getEstudiante().setColor(colores[(int) (Math.floor(Math.random() * ((colores.length - 1) - 0 + 1) + 0))]);
-                estudianteao.getEstudiante().setPlaca(generarPlaca());
+            for (int i = 0; i < 200; i++) {
+                estudianteao.getAuto().setModelo(marcas[(int) (Math.floor(Math.random() * ((marcas.length - 1) - 0 + 1) + 0))]);
+                estudianteao.getAuto().setColor(colores[(int) (Math.floor(Math.random() * ((colores.length - 1) - 0 + 1) + 0))]);
+                estudianteao.getAuto().setPlaca(generarPlaca());
                 estudianteao.guardar();
                 this.limpiar();
             }
@@ -103,13 +103,11 @@ public class FrmAuto extends javax.swing.JDialog {
         return caracteres[index];
     }
 
-//    private boolean validar() {
-//        return (txnombre.getText().trim().length() > 0 && txapellido.getText().trim().length() > 0 && txcedula.getText().trim().length() > 0 && txmateria.getText().trim().length() > 0);
-//    }
+
     private void ordenar() {
         ListaEnlazada aux;
         TipoOrdenacion select = null;
-     //  int select =   cbdireccion.getSelectedIndex();
+
         int select1 = cbmetodo.getSelectedIndex();
         String atributo = cbatributo.getSelectedItem().toString();
         if (cbdireccion.getSelectedIndex() == 0){
@@ -122,7 +120,7 @@ public class FrmAuto extends javax.swing.JDialog {
             aux = estudianteao.listar().QuisortClase(atributo, 0, estudianteao.listar().size() - 1, select);
         } else {
             aux = estudianteao.listar().ShellClase(select , atributo);
-           // aux = estudianteao.listar().QuisortClase(atributo, 0, estudianteao.listar().size() - 1, TipoOrdenacion.DESCENDENTE);
+ 
         }
         mo.setLista(aux);
         jTable1.setModel(mo);

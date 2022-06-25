@@ -9,13 +9,13 @@ import java.io.Serializable;
 
 /**
  *
- * @author Usuario
+ * @author jy    
  */
 public class Auto implements Serializable{
     private String modelo;
     private String color;
     private String placa;
-    //private String materia;
+ 
 
     public String getModelo() {
         return modelo;
@@ -42,7 +42,7 @@ public class Auto implements Serializable{
     }
 
     @Override
-    public String toString() {
+    public String toString() {  
         return modelo +" "+color+" "+placa; 
     }
     

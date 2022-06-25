@@ -12,23 +12,23 @@ import modelo.Auto;
  * @author Usuario
  */
 public class AutoDao extends AdaptadorDao<Auto> {
-    private Auto estudiante;
+    private Auto auto;
 
     public AutoDao() {
         super(Auto.class);
     }
 
-    public Auto getEstudiante() {
-        if(estudiante==null)
-            estudiante = new Auto();
-        return estudiante;
+    public Auto getAuto() {
+        if(auto==null)
+            auto = new Auto();
+        return auto;
     }
 
-    public void setEstudiante(Auto estudiante) {
-        this.estudiante = estudiante;
+    public void setAuto(Auto estudiante) {
+        this.auto = estudiante;
     }
     
     public boolean guardar(){
-        return this.guardar(estudiante);
+        return this.guardar(auto);
     }
 }
